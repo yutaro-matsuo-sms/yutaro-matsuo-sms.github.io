@@ -1,12 +1,6 @@
 <template>
   <div class="photo">
-    <ul class="slide-photo">
-      <li>
-        <a href="#" v-on:click.prevent="onPhotoClick">
-          <img :src="photo" />
-        </a>
-      </li>
-    </ul>
+    <img :src="photo" v-on:click.prevent="onPhotoClick" />
   </div>
 </template>
 
@@ -28,17 +22,13 @@ export default {
       this.currentIndex = this.$props.index;
       this.$emit("onPhoto", this.currentIndex);
     }
-  },
+  }
 };
 </script>
 
 <style>
-.slide-photo {
-  width: 10000px;
-  list-style: none;
-}
-
-.slide-photo li {
-  float: left;
+.photo {
+  display: flex;
+  align-items: center;
 }
 </style>

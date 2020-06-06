@@ -1,13 +1,18 @@
 <template>
   <div class="photo-container">
-    <h2 class>Contents</h2>
-    <Photo
-      v-for="(photo, index) in photos"
-      :key="photo"
-      v-bind:index="index"
-      v-bind:photo="photo"
-      v-on:onPhoto="onClickPhoto"
-    />
+    <carousel 
+      :autoplay="true" 
+      :loop="true" 
+      :speed="1000"
+      :per-page="1">
+      <slide v-for="photo in photos" :key="photo.index">
+        <Photo 
+          v-bind:index="index" 
+          v-bind:photo="photo" 
+          v-on:onPhoto="onClickPhoto" 
+        />
+      </slide>
+    </carousel>
     <FullScreenPhoto
       v-bind:onFullScreen="onFullScreen"
       v-bind:photos="photos"
@@ -17,11 +22,14 @@
 </template>
 
 <script>
+import { Carousel, Slide } from "vue-carousel";
 import Photo from "./Photo";
 import FullScreenPhoto from "./FullScreenPhoto";
 export default {
   name: "PhotoContainer",
   components: {
+    Carousel,
+    Slide,
     Photo,
     FullScreenPhoto
   },
@@ -30,7 +38,7 @@ export default {
   },
   data: function() {
     return {
-      onFullScreen: false,
+      onFullScreen: false
     };
   },
   methods: {
@@ -43,9 +51,9 @@ export default {
       this.changeFullScreen(index);
     },
     closeFullScreen() {
-        this.onFullScreen = false;
+      this.onFullScreen = false;
     }
-  },
+  }
 };
 </script>
 

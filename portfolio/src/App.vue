@@ -47,20 +47,19 @@
       </dl>
     </div>
     <div class="contents">
-      <PhotoContainer 
-        v-bind:photos="photos"
-      />
+      <h2>Contents</h2>
+      <PhotoContainer v-bind:photos="photos" />
     </div>
   </div>
 </template>
 
 <script>
-import PhotoContainer from './components/PhotoContainer';
+import PhotoContainer from "./components/PhotoContainer";
 
 export default {
   name: "App",
   components: {
-    PhotoContainer 
+    PhotoContainer
   },
   data: function() {
     return {
@@ -71,9 +70,9 @@ export default {
         require("./assets/pic/slider/DCFCF608-B5A4-4A6A-9CF8-1DF22021DFB2_Original.jpg"),
         require("./assets/pic/slider/E54EE37D-55EB-45B7-BFC4-BFB3664E17E2_Original.jpg"),
         require("./assets/pic/slider/IMG_2689.jpeg")
-      ],
+      ]
     };
-  },
+  }
 };
 </script>
 
@@ -88,111 +87,111 @@ export default {
 }
 
 #app {
-    font-size: 14px;
-    color: #333;
-    line-height: 1.9;
-    text-align: center;
-    margin: 25;
-    font-weight: normal;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.9;
+  text-align: center;
+  margin: 0;
+  font-weight: normal;
 }
 
 header {
-    margin-bottom: 25px;
-    display: block;
- }
- 
- h1.logo {
-    text-align: left;
-    margin: 0 auto;
-    padding-left: 30px;
-    text-align: left;
- }
+  margin-bottom: 25px;
+  display: block;
+}
+
+h1.logo {
+  text-align: left;
+  margin: 0 auto;
+  padding-left: 30px;
+  text-align: left;
+}
 
 nav {
-    border-top: 1px solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
 }
 
 nav ul {
-    display: flex;
-    list-style-type: none;
+  display: flex;
+  list-style-type: none;
 }
 
 nav li {
-    float: left;
-    width: 50%;
-    border-bottom: 1px solid #d9d9d9;
-    text-align: center;
+  float: left;
+  width: 50%;
+  border-bottom: 1px solid #d9d9d9;
+  text-align: center;
 }
 
 li {
-    display: list-item;
+  display: list-item;
 }
 
-ul.snsBtn{
-    max-width: 50%;
-    text-align: center;
-    margin: 0 auto;
+ul.snsBtn {
+  max-width: 50%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 ul.snsBtn li {
-    display: inline;
+  display: inline;
 }
 
 ul {
-    padding: 0;
+  padding: 0;
 }
 
 .prof {
-    margin-bottom: 25px;
-    font-size: 11px;
+  margin-bottom: 25px;
+  font-size: 11px;
 }
 
 .profImage {
-    width: 20%;
+  width: 20%;
 }
 
 .prof dt {
-    padding-left: 20%;
-    float: left;
-    display: block;
-    width: 30%;
-    font-weight: bold;
+  padding-left: 20%;
+  float: left;
+  display: block;
+  width: 30%;
+  font-weight: bold;
 }
 
 .prof dd {
-    margin-left: 80px;
-    width: 70%;
-    font-size: 12px;
+  margin-left: 80px;
+  width: 70%;
+  font-size: 12px;
 }
 
 .slide_show {
-    width: 100%;
-    max-width: 640px;
-    overflow: hidden;
-    position: relative;
-    margin: 0  auto;
+  width: 100%;
+  max-width: 640px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
 }
 
 .slide_pic {
-    width: 10000px;
-    list-style: none;
+  width: 10000px;
+  list-style: none;
 }
 
 .slide_pic li {
-    float: left;
+  float: left;
 }
 
 #nav_btn .prev {
-    position: absolute;
-    left: 10px;
-    top: 35%;
-    margin-top: -25px;
+  position: absolute;
+  left: 10px;
+  top: 35%;
+  margin-top: -25px;
 }
 
 #nav_btn .next {
-    position: absolute;
-    right: 10px;
-    top: 35%;
-    margin-top: -25px;
+  position: absolute;
+  right: 10px;
+  top: 35%;
+  margin-top: -25px;
 }
 </style>
