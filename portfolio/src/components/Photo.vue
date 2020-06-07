@@ -1,6 +1,6 @@
 <template>
   <div class="photo">
-    <img :src="photo" v-on:click.prevent="onPhotoClick" />
+    <img :src="photo" v-on:click="onPhotoClick"/>
   </div>
 </template>
 
@@ -10,17 +10,16 @@ export default {
   components: {},
   props: {
     photo: String,
-    index: Number
   },
   data: function() {
     return {
-      currentIndex: -1
+      ocClickFlag: -1
     };
   },
   methods: {
     onPhotoClick() {
-      this.currentIndex = this.$props.index;
-      this.$emit("onPhoto", this.currentIndex);
+      this.onClickFlag = 11;
+      this.$emit("onPhoto", this.onClickFlag);
     }
   }
 };
@@ -29,6 +28,8 @@ export default {
 <style>
 .photo {
   display: flex;
+  width: 640px;
+  height: 420px;
   align-items: center;
 }
 </style>

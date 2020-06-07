@@ -3,18 +3,22 @@
     <carousel 
       :autoplay="true" 
       :loop="true" 
-      :speed="1000"
-      :per-page="1">
+      :speed="1000" 
+      :per-page="1"
+      @pageChange="getIndex"
+    >
       <slide v-for="photo in photos" :key="photo.index">
-        <Photo 
-          v-bind:index="index" 
-          v-bind:photo="photo" 
-          v-on:onPhoto="onClickPhoto" 
-        />
+        <div class="photo-slider">
+          <Photo
+            v-bind:photo="photo" 
+            v-on:onPhoto="onClickPhoto" 
+          />
+        </div>
       </slide>
     </carousel>
     <FullScreenPhoto
       v-bind:onFullScreen="onFullScreen"
+      v-bind:onClickIndex="onClickIndex"
       v-bind:photos="photos"
       v-on:toClose="closeFullScreen"
     />
@@ -38,17 +42,24 @@ export default {
   },
   data: function() {
     return {
-      onFullScreen: false
+      onFullScreen: false,
+      onClickIndex: 0
     };
   },
   methods: {
-    changeFullScreen(index) {
-      if (index > -1) {
+    changeFullScreen(Flag) {
+      if (Flag > 10) {
         return (this.onFullScreen = true);
       }
     },
-    onClickPhoto(index) {
-      this.changeFullScreen(index);
+    onClickPhoto(n) {
+      const onClickFlag = this.onClickIndex + n;
+      this.changeFullScreen(onClickFlag);
+    },
+    getIndex(index) {
+      if (this.onFullScreen === false ) {
+        this.onClickIndex = index;
+      }
     },
     closeFullScreen() {
       this.onFullScreen = false;
@@ -64,5 +75,9 @@ export default {
   overflow: hidden;
   position: relative;
   margin: 0 auto;
+}
+
+.photo-slider {
+  margin: 0, auto;
 }
 </style>
